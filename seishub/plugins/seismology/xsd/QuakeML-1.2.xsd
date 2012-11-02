@@ -6,7 +6,7 @@
            elementFormDefault="qualified" 
            attributeFormDefault="unqualified">
            
-  <xs:import namespace="http://quakeml.org/xmlns/bed/1.2" schemaLocation="QuakeML-BED-1.2.xsd"/>
+  <xs:import namespace="http://quakeml.org/xmlns/bed/1.2" schemaLocation="http://www.geophysik.uni-muenchen.de/~megies/quakeml/QuakeML-BED-1.2.xsd"/>
  
   <xs:complexType name="Quakeml">
     <xs:all>
