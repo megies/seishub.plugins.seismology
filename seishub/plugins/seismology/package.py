@@ -98,8 +98,8 @@ class SeismicEventResourceType(Component):
     package_id = 'seismology'
     resourcetype_id = 'event'
 
-    registerSchema('xsd' + os.sep + 'QuakeML-1.2.xsd', 'XMLSchema_1')
-    registerSchema('xsd' + os.sep + 'QuakeML-BED-1.2.xsd', 'XMLSchema_2')
+    registerSchema('xsd' + os.sep + 'QuakeML-1.2.xsd', 'XMLSchema')
+    registerSchema('xsd' + os.sep + 'QuakeML-BED-1.2.xsd', 'XMLSchema_nested')
     registerStylesheet('xslt' + os.sep + 'event_metadata.xslt', 'metadata')
     registerStylesheet('xslt' + os.sep + 'event_googlemaps_xhtml.xslt', 'map')
     registerStylesheet('xslt' + os.sep + 'seiscomp2earthworm.xslt', 'seiscomp')
