@@ -1,0 +1,6 @@
+dev:
+ * changing event resource of package to support quakeML:
+   - adapting EventListMapper to changes in index fields
+   - registering quakeML schemas for validation
+   - changing xpaths of index fields to quakeML (with 2 erdbebendienst bayern
+     specific indizes)
