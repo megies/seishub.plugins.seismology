@@ -369,19 +369,14 @@ class WaveformCutterMapper(Component):
         else:
             # get from local waveform archive
             for result in results:
-                # The sourcename is passed to the MiniSEED reading method and
-                # will have the effect of not even reading non-requested
-                # records. If another file format is read, it is ignored.
-                sourcename = "%s.%s.%s.%s" % result[2:6]
                 fname = result[0] + os.sep + result[1]
                 try:
                     st = read(fname, format=result[6], starttime=start,
-                        sourcename=sourcename, endtime=end)
+                              endtime=end)
                 except ChksumError:
                     try:
                         st = read(fname, format=result[6], starttime=start,
-                          sourcename=sourcename, endtime=end,
-                          verify_chksum=False)
+                                  endtime=end, verify_chksum=False)
                     except:
                         continue
                 except:
@@ -398,11 +393,6 @@ class WaveformCutterMapper(Component):
                 st.trim(start, end)
                 stream += st
                 del st
-
-        # Filter in the case it is a multi-component non MiniSEED file.
-        stream = stream.select(network=result[2], station=result[3],
-            location=result[4], channel=result[5])
-
         # pickle stream
         data = pickle.dumps(stream, protocol=2)
         del stream
