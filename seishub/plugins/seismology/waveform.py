@@ -381,17 +381,15 @@ class WaveformCutterMapper(Component):
                         continue
                 except:
                     continue
+                # trim
+                st.trim(start, end)
                 for tr in st:
                     if apply_filter is not None:
                         tr.stats.network = result[2]
                         tr.stats.station = result[3]
                         tr.stats.location = result[4]
                         tr.stats.channel = result[5]
-                # deselect unwanted traces with other seed_ids from read result
-                st = st.select(id=sourcename)
-                # trim
-                st.trim(start, end)
-                stream += st
+                    stream.append(tr)
                 del st
         # pickle stream
         data = pickle.dumps(stream, protocol=2)
